@@ -30,7 +30,7 @@ class Spaceship extends Floater
     public void hyperSpace () {
     myXspeed = 0; // stop the space ship
     myYspeed = 0;
-    myPointDirection = 0; // reset its direction to East (0 degrees)
+    myPointDirection =  ((Math.random()*360)%20)*20;
     myCenterX = Math.random() * 800; // assign it a random location
     myCenterY = Math.random() * 800;
     }

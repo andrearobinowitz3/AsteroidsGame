@@ -40,7 +40,7 @@ class Asteroid extends Floater {
       */
       corners = 3;
       xCorners = new int[] {1,2,3};
-      yCorners = new int[] {1, -1, 2}
+      yCorners = new int[] {1, -1, 2};
       
       // set the color of the asteroid 
       myColor = (int) 100 + (int) (Math.random()*155);

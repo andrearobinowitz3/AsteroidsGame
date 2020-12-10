@@ -5,7 +5,8 @@ class Asteroid extends Floater {
  public Asteroid () {
      // create the asteroid polygon
      
-     myRadius = 1 + Math.random() * 6;
+     /*
+      myRadius = 1 + Math.random() * 6;
     
      
      if (Math.random() < 0.8) {
@@ -52,9 +53,11 @@ class Asteroid extends Floater {
       myPointDirection = Math.random() * 360; // 0 - 360
       // set the amount that the polygon turns each move
       rotationSpeed = Math.random()*5 - 2.5;  // -2.5 .. 2.5
+      
+      */
  }
  
- /*
+
  public void move () {
    // this method moves the asteroids
    turn(rotationSpeed); // first turn the asteroid
@@ -73,5 +76,5 @@ public float getX () {
 public float getY () {
   return (float) myCenterY;
 }
-*/
+
 }

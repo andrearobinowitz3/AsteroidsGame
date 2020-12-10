@@ -1,7 +1,7 @@
 class Asteroid extends Floater {
  private double rotationSpeed, myRadius;
 
- /*
+ 
  public Asteroid () {
      // create the asteroid polygon
      
@@ -53,6 +53,8 @@ class Asteroid extends Floater {
       // set the amount that the polygon turns each move
       rotationSpeed = Math.random()*5 - 2.5;  // -2.5 .. 2.5
  }
+ 
+ /*
  public void move () {
    // this method moves the asteroids
    turn(rotationSpeed); // first turn the asteroid

@@ -55,15 +55,16 @@ public void draw()
     stars[i].show();
   }
   // draw the asteroids next, and then have them move
-  detectAsteroidCollision ();
+  /* detectAsteroidCollision ();
   for (int i = 0; i < theList.size(); i++) {
     theList.get(i).show();
     theList.get(i).move();
   }
+  */
   
    // draw the space ship, and then have it move
-  spaceShip.show();
-  spaceShip.move();
+  /* spaceShip.show();
+  spaceShip.move(); */
   
   /*
    stroke (250); fill (250);

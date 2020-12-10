@@ -31,10 +31,10 @@ public void setup()
 
 
 public void detectAsteroidCollision () {
-  for (int i = 0; i < theList.size(); i++) {
-    if (dist (theList.get(i).getX(), theList.get(i).getY(), spaceShip.getMyX(), spaceShip.getMyY()) < theList.get(i).getRadius()) {
-        score = (int) score + (int) theList.get(i).myRadius * 10;
-        theList.remove(i);
+  for (int i = 0; i < asteroidsList.size(); i++) {
+    if (dist (asteroidsList.get(i).getX(), asteroidsList.get(i).getY(), spaceShip.getMyX(), spaceShip.getMyY()) < asteroidsList.get(i).getRadius()) {
+        score = (int) score + (int) asteroidsList.get(i).myRadius * 10;
+        asteroidsList.remove(i);
         return ;
     }
   }
@@ -54,12 +54,12 @@ public void draw()
     stars[i].show();
   }
   // draw the asteroids next, and then have them move
-  /* detectAsteroidCollision ();
-  for (int i = 0; i < theList.size(); i++) {
-    theList.get(i).show();
-    theList.get(i).move();
+  detectAsteroidCollision ();
+  for (int i = 0; i < asteroidsList.size(); i++) {
+    asteroidsList.get(i).show();
+    asteroidsList.get(i).move();
   }
-  */
+ 
   
    // draw the space ship, and then have it move
   spaceShip.show();
@@ -115,4 +115,4 @@ public void keyPressed () {
    spaceShip.accelerate (-0.5);
   }
     
-}
+} 

@@ -1,74 +1,119 @@
-class Asteroid extends Floater {
- private double rotationSpeed, myRadius;
+//your variable declarations here
 
- 
- public Asteroid () {
-     // create the asteroid polygon
-     
-     myRadius = 1 + Math.random() * 6;
-    
-     if (Math.random() < 0.8) {
-       corners = 11;
-       myRadius = 1 + Math.random() * 9;
-       xCorners = new int[] 
-       {4 * (int) myRadius, 4 * (int) myRadius, 2 *(int) myRadius, 1 *(int) myRadius, -1 * (int) myRadius,-2 * (int) myRadius,-5 * (int) myRadius, 
-                       -4 * (int) myRadius, 0 * (int) myRadius, 3 * (int) myRadius, 5 * (int) myRadius}; 
-       yCorners= 
-                 new int[] 
-       {0 * (int) myRadius,2 * (int) myRadius, 2  * (int) myRadius, 4 * (int) myRadius, 3 * (int) myRadius, 3 * (int) myRadius, 1 * (int) myRadius, 
-                       -2 * (int) myRadius,-5 * (int) myRadius,-4 * (int) myRadius, -2 * (int) myRadius};
-     }
-     else
-     {
-       if (Math.random() < 0.8) {
-       myRadius = 1 + Math.random() * 4;  
-       corners = 6;  //the number of corners, a triangular floater has 3
-       xCorners= new int[] {-9* (int) myRadius, 7 * (int) myRadius,11*(int) myRadius,12 * (int) myRadius,-4 * (int) myRadius,-6 * (int) myRadius};   
-       yCorners= new int[] {-8 * (int) myRadius,-5 * (int) myRadius,0 *(int) myRadius,3 * (int) myRadius,6 * (int) myRadius,0 * (int) myRadius};
-       }
-       else
-         {
-         myRadius = 1 + Math.random() * 3;  
-         corners = 8;  //the number of corners, a triangular floater has 3
-         xCorners= new int[] {-7* (int) myRadius, 2 * (int) myRadius, 8*(int) myRadius,8*(int) myRadius,6 * (int) myRadius,-9 * (int) myRadius,
-                 -2 * (int) myRadius, -3 * (int) myRadius};   
-         yCorners= new int[] {-6 * (int) myRadius,-2 * (int) myRadius,3 * (int) myRadius, 3 * (int) myRadius,8 * (int) myRadius,6 * (int) myRadius,
-                 0 * (int) myRadius, -2 * (int) myRadius}; 
-         }
-     }
-     
-      // set the color of the asteroid 
-      myColor = (int) 100 + (int) (Math.random()*155);
-      // set the initial (random) position of the asteroid
-      myCenterX = (float) Math.random()*800; 
-      myCenterY = (float) Math.random()*800;   
-      // set the initial random speed of the polygon
-      // the speed can be negative or positive
-      myXspeed = (float) -2 + Math.random() * 4; // -2 .. 2
-      myYspeed = (float) -2 + Math.random() * 4;
-      // set the initial direction of the polygon
-      myPointDirection = Math.random() * 360; // 0 - 360
-      // set the amount that the polygon turns each move
-      rotationSpeed = Math.random()*5 - 2.5;  // -2.5 .. 2.5
- }
- public void move () {
-   // this method moves the asteroids
-   turn(rotationSpeed); // first turn the asteroid
-   super.move(); // then call the superceding move function which will
-                 // change its x and y location
- }
+// game controls
+
+int numberOfLives;
+int score = 0, highScore = 0;
+
+
+Spaceship spaceShip;
+Star[] stars;
+ArrayList <Asteroid> asteroidsList;
+
+public void setup() 
+{
+  size (800,800);
+
+  score = 0;
+  numberOfLives = 3;
+  spaceShip = new Spaceship();
+  stars = new Star[200];
+  for (int i = 0; i<stars.length; i++) {
+    stars[i] = new Star();
+  }
   
-public float getRadius () {
-  return (float) myRadius*10;
+  asteroidsList = new ArrayList <Asteroid>();
+  /* for (int i = 0; i<20; i++) {
+    asteroidsList.add(new Asteroid());
+  } */
+  
 }
 
-public float getX () {
-  return  (float) myCenterX;
+/*
+public void detectAsteroidCollision () {
+  for (int i = 0; i < theList.size(); i++) {
+    if (dist (theList.get(i).getX(), theList.get(i).getY(), spaceShip.getMyX(), spaceShip.getMyY()) < theList.get(i).getRadius()) {
+        score = (int) score + (int) theList.get(i).myRadius * 10;
+        theList.remove(i);
+        return ;
+    }
+  }
+}
+*/
+
+public void draw() 
+{
+  background(0);  // create a black background
+  
+  if (score > highScore) {
+    highScore = score;
+  }
+  
+  // draw the stars first -- so that the other objects
+  // are in the foreground with stars in the background
+  for (int i = 0; i<stars.length; i++) {
+    stars[i].show();
+  }
+  // draw the asteroids next, and then have them move
+  /* detectAsteroidCollision ();
+  for (int i = 0; i < theList.size(); i++) {
+    theList.get(i).show();
+    theList.get(i).move();
+  }
+  */
+  
+   // draw the space ship, and then have it move
+  spaceShip.show();
+  spaceShip.move();
+  
+  
+   stroke (250); fill (250);
+  text ("Lives "+numberOfLives+"  Force Field Left: "+spaceShip.getForceFields()+
+      "  Score: "+score+".  High Score: "+highScore+".", 10,12);
+  if (spaceShip.getForceFieldCounter() > 0) {
+    text ("Force Field Power: "+spaceShip.getForceFieldCounter(),650,12);
+  }
+  
+  
 }
 
-public float getY () {
-  return (float) myCenterY;
-}
 
+public void keyPressed () {
+  if ((key == 'h') || (key == 'H')) {
+    // H pressed --> hyperspace
+    spaceShip.hyperSpace();
+  }
+  else if ((key == 'n') || (key == 'N')) {
+   // newgame
+   setup ();
+  }
+  else if ((key == 'd') || (key == 'D')) {
+    // rotate right
+    spaceShip.turn(20);
+  }
+  else if ((key == 'a') || (key == 'A')) {
+    // rotate left
+    spaceShip.turn(-20);
+  }
+  else if ((key == 's') || (key == 'S')) {
+    // fire thruster
+    spaceShip.accelerate (2);
+  }
+  else if ((key == 'q') || (key == 'Q')) {
+    // quit the game
+    exit ();
+  }
+  else if ((key == 'w') || (key == 'W')) {
+    // shoot the gun
+    spaceShip.shoot();
+  }
+  else if ((key == 'f') || (key == 'F')) {
+    // activate the forcefield
+    spaceShip.forceField();
+  }
+  else if ((key == 'r') || (key == 'R')) {
+    // brake the spaceship
+   spaceShip.accelerate (-0.5);
+  }
+    
 }
-

@@ -8,7 +8,7 @@ int score = 0, highScore = 0;
 
 Spaceship spaceShip;
 Star[] stars;
-ArrayList <Asteroid> theList;
+ArrayList <Asteroid> asteroidsList;
 
 public void setup() 
 {
@@ -22,10 +22,10 @@ public void setup()
     stars[i] = new Star();
   }
   
-  theList = new ArrayList <Asteroid>();
-  /* for (int i = 0; i<20; i++) {
-    theList.add(new Asteroid());
-  } */
+  asteroidsList = new ArrayList <Asteroid>();
+  for (int i = 0; i<20; i++) {
+    asteroidsList.add(new Asteroid());
+  } 
   
 }
 

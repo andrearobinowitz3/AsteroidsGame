@@ -8,7 +8,7 @@ int score = 0, highScore = 0;
 
 Spaceship spaceShip;
 Star[] stars;
-/* ArrayList <Asteroid> theList; */
+ArrayList <Asteroid> theList;
 
 public void setup() 
 {

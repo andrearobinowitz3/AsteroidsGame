@@ -21,11 +21,11 @@ public void setup()
   for (int i = 0; i<stars.length; i++) {
     stars[i] = new Star();
   }
-  theList = new ArrayList <Asteroid>();
   
-  for (int i = 0; i<20; i++) {
+  theList = new ArrayList <Asteroid>();
+  /* for (int i = 0; i<20; i++) {
     theList.add(new Asteroid());
-  }
+  } */
   
 }
 

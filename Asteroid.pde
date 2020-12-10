@@ -50,7 +50,7 @@ class Asteroid extends Floater {
       // the speed can be negative or positive
       
       myXspeed =  -2 + Math.random() * 4; // -2 .. 2
-      // myYspeed = -2 + Math.random() * 4; 
+      myYspeed = -2 + Math.random() * 4; 
       // set the initial direction of the polygon
       myPointDirection = Math.random() * 360; // 0 - 360 
       // set the amount that the polygon turns each move

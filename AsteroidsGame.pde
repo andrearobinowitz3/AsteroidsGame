@@ -10,7 +10,7 @@ int score = 0, highScore = 0;
 
 Spaceship spaceShip;
 Star[] stars;
-ArrayList <Asteroid> theList;
+/* ArrayList <Asteroid> theList; */
 
 public void setup() 
 {
@@ -23,14 +23,16 @@ public void setup()
   for (int i = 0; i<stars.length; i++) {
     stars[i] = new Star();
   }
-  theList = new ArrayList <Asteroid>();
+   /* theList = new ArrayList <Asteroid>();
   
   for (int i = 0; i<20; i++) {
     theList.add(new Asteroid());
   }
+  */
   
 }
 
+/*
 public void detectAsteroidCollision () {
   for (int i = 0; i < theList.size(); i++) {
     if (dist (theList.get(i).getX(), theList.get(i).getY(), spaceShip.getMyX(), spaceShip.getMyY()) < theList.get(i).getRadius()) {
@@ -40,6 +42,7 @@ public void detectAsteroidCollision () {
     }
   }
 }
+*/
 
 public void draw() 
 {

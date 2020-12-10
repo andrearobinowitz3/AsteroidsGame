@@ -5,9 +5,9 @@ class Asteroid extends Floater {
  public Asteroid () {
      // create the asteroid polygon
      
-    /*
-    myRadius = 1 + Math.random() * 6;
+     myRadius = 1 + Math.random() * 6;
     
+     /*
      if (Math.random() < 0.8) {
        corners = 11;
        myRadius = 1 + Math.random() * 9;
@@ -37,11 +37,12 @@ class Asteroid extends Floater {
                  0 * (int) myRadius, -2 * (int) myRadius}; 
          }
      }
-      */
-      corners = 3;
-      xCorners = new int[] {1,2,3};
-      yCorners = new int[] {1, -1, 2};
-      
+     */
+     xCorners = new int[] {1, 4, -3};
+     yCorners = new int[] {3, -2, 2};
+     corners = 3;
+     myRadius = 5;
+     
       // set the color of the asteroid 
       myColor = (int) 100 + (int) (Math.random()*155);
       // set the initial (random) position of the asteroid

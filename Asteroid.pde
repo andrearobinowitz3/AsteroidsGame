@@ -1,4 +1,4 @@
-/* class Asteroid extends Floater {
+class Asteroid extends Floater {
  private double rotationSpeed, myRadius;
 
  
@@ -72,4 +72,3 @@ public float getY () {
 
 }
 
-*/

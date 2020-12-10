@@ -5,7 +5,7 @@ class Asteroid extends Floater {
  public Asteroid () {
      // create the asteroid polygon
      
-     /*
+       
       myRadius = 1 + Math.random() * 6;
     
      
@@ -39,8 +39,8 @@ class Asteroid extends Floater {
          }
      }
      
-      */
       
+      /*
       // set the color of the asteroid 
       myColor = (int) 100 + (int) (Math.random()*155);
       // set the initial (random) position of the asteroid
@@ -54,6 +54,7 @@ class Asteroid extends Floater {
       myPointDirection = Math.random() * 360; // 0 - 360
       // set the amount that the polygon turns each move
       rotationSpeed = Math.random()*5 - 2.5;  // -2.5 .. 2.5
+      */
       
      
  }

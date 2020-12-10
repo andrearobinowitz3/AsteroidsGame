@@ -29,7 +29,7 @@ public void setup()
   
 }
 
-/*
+
 public void detectAsteroidCollision () {
   for (int i = 0; i < theList.size(); i++) {
     if (dist (theList.get(i).getX(), theList.get(i).getY(), spaceShip.getMyX(), spaceShip.getMyY()) < theList.get(i).getRadius()) {
@@ -39,7 +39,6 @@ public void detectAsteroidCollision () {
     }
   }
 }
-*/
 
 public void draw() 
 {

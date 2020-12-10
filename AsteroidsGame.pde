@@ -1,7 +1,5 @@
 //your variable declarations here
 
-
-
 // game controls
 
 int numberOfLives;
@@ -66,8 +64,8 @@ public void draw()
   */
   
    // draw the space ship, and then have it move
-  /* spaceShip.show();
-  spaceShip.move(); */
+  spaceShip.show();
+  spaceShip.move();
   
   
    stroke (250); fill (250);

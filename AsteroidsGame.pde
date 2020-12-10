@@ -69,14 +69,14 @@ public void draw()
   /* spaceShip.show();
   spaceShip.move(); */
   
-  /*
+  
    stroke (250); fill (250);
   text ("Lives "+numberOfLives+"  Force Field Left: "+spaceShip.getForceFields()+
       "  Score: "+score+".  High Score: "+highScore+".", 10,12);
   if (spaceShip.getForceFieldCounter() > 0) {
     text ("Force Field Power: "+spaceShip.getForceFieldCounter(),650,12);
   }
-  */
+  
   
 }
 

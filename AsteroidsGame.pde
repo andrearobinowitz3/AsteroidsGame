@@ -31,10 +31,10 @@ public void setup()
 public void detectAsteroidCollision () {
   for (int i = 0; i < asteroidsList.size(); i++) {
     if (dist (asteroidsList.get(i).getX(), asteroidsList.get(i).getY(), 
-        spaceShip.getMyX(), spaceShip.getMyY()) < asteroidsList.get(i).getRadius())
+        spaceShip.getMyX(), spaceShip.getMyY()) < asteroidsList.get(i).getRadius()*10)
         if  (spaceShip.getForceFieldCounter() > 0)  
           {
-          score = (int) score + (int) asteroidsList.get(i).myRadius * 10;
+          score = (int) score + (int) asteroidsList.get(i).getRadius() * 10;
             asteroidsList.remove(i);
           return ;
           }
@@ -119,7 +119,7 @@ public void draw()
   }
   
   stroke (250); fill (250);
-  textSize(12);
+  textSize(14);
   text ("Lives "+numberOfLives+"  Force Field Left: "+spaceShip.getForceFields()+
       "  Score: "+score+".  High Score: "+highScore+".", 10,12);
   text ("Asteroids Remaining: "+asteroidsList.size(),400,12);    
@@ -169,7 +169,7 @@ public void keyPressed () {
            (numberOfLives > 0)) {
    bulletsList.add(new Bullet(spaceShip)); 
   }
-  else if (key == '+') {
+  else if ((key == '+') || (key == '=')) {
    asteroidsList.add(new Asteroid());
   }
 }

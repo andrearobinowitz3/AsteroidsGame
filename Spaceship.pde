@@ -9,6 +9,7 @@ class Spaceship extends Floater
     protected int[] yCornersFlameRear;
     protected int[] xCornersFlameFront;
     protected int[] yCornersFlameFront;
+
     
     public Spaceship(){
     // the constructor for this class
@@ -21,12 +22,12 @@ class Spaceship extends Floater
     yCornersFlameRear = new int[] {0,   5,   0, -5};
     xCornersFlameFront = new int[] {16, 25, 34, 25};
     yCornersFlameFront = new int[] {0,  4,  0, -4};
-    myColor= color(250); // set the color to white   
+    myColor= color(238,187,250); // set the color to white   
     myCenterX = myCenterY= 400;  // position the space ship in the center of the screen   
     myXspeed = myYspeed=0;   // set it to not moving
     myPointDirection=0;  // set its direction to East (0 degrees)
     forceFieldUsesLeft = 3; // set 3 force field uses left
-    forceFieldCounter = 0; // starts with the force field off
+    forceFieldCounter = 50; // starts with the force field off
     flames = 0; // whether flames should come out of spaceship
     }
     
@@ -152,5 +153,19 @@ class Spaceship extends Floater
   }
   public float getMyY () {
     return (float) myCenterY;
+  }
+  
+  public float getMyXSpeed () {
+    return (float) myXspeed;
+  }
+  public float getMyYSpeed () {
+    return (float) myYspeed;
+  }
+  
+  public float getMyDirection() {
+    return (float) myPointDirection;
+  }
+    public int getMyColor() {
+    return myColor;
   }
 }

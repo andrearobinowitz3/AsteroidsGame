@@ -69,7 +69,7 @@ class Asteroid extends Floater {
  }
   
 public float getRadius () {
-  return (float) myRadius*10;
+  return (float) myRadius;
 }
 
 public float getX () {
